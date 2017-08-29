@@ -3,12 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.luikia</groupId>
-    <artifactId>cloud</artifactId>
+    <artifactId>spring-cloud-example</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>eureka-server</module>
         <module>eureka-register</module>
         <module>eureka-client</module>
+        <module>config-server</module>
     </modules>
     <packaging>pom</packaging>
     <parent>
