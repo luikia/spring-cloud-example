@@ -23,13 +23,12 @@ public class CustomRouteLocator extends SimpleRouteLocator implements Refreshabl
 
     @Override
     protected Map<String, ZuulRoute> locateRoutes() {
-        LinkedHashMap<String, ZuulRoute> routesMap = new LinkedHashMap<String, ZuulRoute>();
+        LinkedHashMap<String, ZuulRoute> routesMap = new LinkedHashMap<>();
         routesMap.putAll(super.locateRoutes());
         routesMap.putAll(this.mylocateRoutes());
         LinkedHashMap<String, ZuulRoute> values = new LinkedHashMap<>();
         for (Map.Entry<String, ZuulRoute> entry : routesMap.entrySet()) {
             String path = entry.getKey();
-            // Prepend with slash if not already present.
             if (!path.startsWith("/")) {
                 path = "/" + path;
             }
@@ -49,7 +48,8 @@ public class CustomRouteLocator extends SimpleRouteLocator implements Refreshabl
         ZuulRoute zuulRoute = new ZuulRoute();
         zuulRoute.setId("register");
         zuulRoute.setPath("/register/**");
-        zuulRoute.setServiceId("EUREKA-REGISTER");
+        zuulRoute.setUrl("http://localhost:8080");
+        //zuulRoute.setServiceId("EUREKA-REGISTER");
         map.put("/register/**",zuulRoute);
         return map;
     }
